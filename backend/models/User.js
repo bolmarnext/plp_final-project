@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const { sequelize } = require('../config/db');
 
-const User = sequelize.define('User ', {
+const User = sequelize.define('User', {
     username: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -14,6 +14,10 @@ const User = sequelize.define('User ', {
     role: {
         type: DataTypes.ENUM('admin', 'police', 'court', 'prison'),
         allowNull: false,
+    },
+    permissions: {
+        type: DataTypes.JSON, // Store permissions as a JSON object
+        allowNull: true,
     },
 });
 
